@@ -49,6 +49,7 @@ $routes->get('/', function() {
     echo view('layout/footer');
 });
 
+$routes->get('/admin', 'Templating::index');
 $routes->get('/posts', 'PostController::index');
 
 $routes->get('/about', function() {
