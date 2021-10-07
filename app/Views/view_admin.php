@@ -1,5 +1,4 @@
 <?= $this->extend('template'); ?>
-
 <?= $this->section('content'); ?>
 
 <div class="wrapper">
@@ -860,6 +859,5 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 
 <?= $this->endSection(); ?>

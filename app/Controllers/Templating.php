@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 
 class Templating extends BaseController
 {
+
 	public function index()
 	{
         //echo "hello";
@@ -24,6 +25,7 @@ class Templating extends BaseController
         // echo view('v_posts');
         // echo view('layout/footer');
 
-        return view('view_admin');
+        return view('view_admin', $data);
 	}
+
 }
