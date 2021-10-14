@@ -46,7 +46,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="/admin" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -55,7 +55,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="/admin/posts" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>My Post</p>
@@ -75,12 +75,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">My Posts</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">My Post</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -88,7 +88,44 @@
     </div>
     <!-- /.content-header -->
     <!-- /.content -->
-  </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Form Tambah Posts
+            </div>
+            <div class="card-body">
+                <form action="/admin/posts/store" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="judul">Judul Postingan</label>
+                                <input type="text" class="form-control" id="judul" name="judul">         
+                            </div>
+                            <div class="form-group">
+                                <label for="slug">Slug</label>
+                                <input type="text" class="form-control" id="slug" name="slug">         
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Kategori Postingan</label>
+                                <input type="text" class="form-control" id="category" name="category">         
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author</label>
+                                <input type="text" class="form-control" id="author" name="author">         
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>Submit
+                            </button>
+                        </div>
+                        <div class="col-md-8">
+                            <label for="deskripsi"> Deskripsi Postingan</label><br>
+                            <textarea name="deskripsi" id="deskripsi"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -98,4 +135,10 @@
 </div>
 <!-- ./wrapper -->
 
+<?= $this->endSection(); ?>
+
+<?= $this->section('myscript'); ?>
+<script>
+    $('#deskripsi').summernote()
+</script>
 <?= $this->endSection(); ?>

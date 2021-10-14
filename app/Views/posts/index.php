@@ -46,7 +46,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="/admin" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -55,7 +55,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="/admin/posts" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>My Post</p>
@@ -75,12 +75,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">My Posts</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">My Post</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -88,6 +88,9 @@
     </div>
     <!-- /.content-header -->
     <!-- /.content -->
+    <div class="container">
+        <a href="/admin/posts/create" class="btn btn-primary"> <i class="fas fa-plus"></i>Tambah Data</a>
+    </div>
   </div>
 
   <!-- Control Sidebar -->
