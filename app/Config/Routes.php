@@ -68,7 +68,7 @@ $routes->get('/about', function() {
 
 $routes->get('/admin/posts', 'AdminPostsController::index');
 $routes->get('/admin/posts/create', 'AdminPostsController::create');
-$routes->get('/admin/posts/store', 'AdminPostsController::store');
+$routes->post('/admin/posts/store', 'AdminPostsController::store');
 
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
