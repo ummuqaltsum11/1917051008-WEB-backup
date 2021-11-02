@@ -34,10 +34,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/assets/adminlte/dist/img/user4-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Ummu Qaltsum</a>
         </div>
       </div>
 
@@ -97,15 +97,15 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                Form Tambah Posts
+                Form Edit Posts
             </div>
             <div class="card-body">
-                <form action="/admin/posts/store" method="POST">
+                <form action="/admin/posts/update/<?=$post['post_id'];?>" method="post">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="judul">Judul Postingan</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>" id="judul" name="judul" value="<?= old('judul');?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>" id="judul" name="judul" value="<?= (old('judul')) ? old('judul') : $post['judul'];?>">
                                 <?php if($validation->hasError('judul')) : ?>
                                 <div class="invalid-feedback">
                                   <?= $validation->getError("judul"); ?>
@@ -114,7 +114,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="slug">Slug</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('slug')) ? 'is-invalid' : ''; ?>" id="slug" name="slug" value="<?= old('slug');?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('slug')) ? 'is-invalid' : ''; ?>" id="slug" name="slug" value="<?= (old('slug')) ? old('slug') : $post['slug'];?>" disabled>
                                 <?php if($validation->hasError('slug')) : ?>
                                 <div class="invalid-feedback">
                                   <?= $validation->getError("slug"); ?>
@@ -123,7 +123,7 @@
                               </div>
                             <div class="form-group">
                                 <label for="kategori">Kategori Postingan</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('kategori')) ? 'is-invalid' : ''; ?>" id="kategori" name="kategori" value="<?= old('kategori');?>">
+                                <input type="text" class="form-control <?= ($validation->hasError('kategori')) ? 'is-invalid' : ''; ?>" id="kategori" name="kategori" value="<?= (old('kategori')) ? old('kategori') : $post['kategori'];?>">
                                 <?php if($validation->hasError('kategori')) : ?>
                                 <div class="invalid-feedback">
                                   <?= $validation->getError("kategori"); ?>
@@ -132,7 +132,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="author">Author</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('author')) ? 'is-invalid' : ''; ?>" id="author" name="author" value="<?= old('author');?>"> 
+                                <input type="text" class="form-control <?= ($validation->hasError('author')) ? 'is-invalid' : ''; ?>" id="author" name="author" value="<?= (old('author')) ? old('author') : $post['author'];?>"> 
                                 <?php if($validation->hasError('author')) : ?>
                                 <div class="invalid-feedback">
                                   <?= $validation->getError("author"); ?>
@@ -140,7 +140,7 @@
                                 <?php endif; ?>
                             </div>
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Submit
+                                <i class="fas fa-paper-plane"></i> Edit Data
                             </button>
                         </div>
                         <div class="col-md-8">

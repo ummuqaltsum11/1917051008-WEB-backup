@@ -34,10 +34,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/assets/adminlte/dist/img/user4-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Ummu Qaltsum</a>
         </div>
       </div>
 
@@ -55,13 +55,13 @@
               </p>
             </a>
           </li>
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="/admin/posts" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>My Post</p>
            </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="/admin/users" class="nav-link">
               <i class="nav-icon fas fa-user-graduate"></i>
               <p>Data User</p>
@@ -81,12 +81,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">My Posts</h1>
+            <h1 class="m-0">Data User</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-              <li class="breadcrumb-item active">My Post</li>
+              <li class="breadcrumb-item active">Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -97,59 +97,66 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                Form Tambah Posts
+                Form Tambah Data
             </div>
             <div class="card-body">
-                <form action="/admin/posts/store" method="POST">
+                <form action="/admin/users/save" method="POST"> <!-- enctype="multipart/form-data -->
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="judul">Judul Postingan</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>" id="judul" name="judul" value="<?= old('judul');?>">
-                                <?php if($validation->hasError('judul')) : ?>
+                            <div class="form-group">
+                                <label for="fullname">Nama Lengkap</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('fullname')) ? 'is-invalid' : ''; ?>" id="fullname" name="fullname" autofocus value="<?= old('fullname');?>">
+                                <?php if($validation->hasError('fullname')) : ?>
                                 <div class="invalid-feedback">
-                                  <?= $validation->getError("judul"); ?>
+                                  <?= $validation->getError("fullname"); ?>
                                 </div>
                                 <?php endif; ?>         
                             </div>
-                            <div class="form-group">
-                                <label for="slug">Slug</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('slug')) ? 'is-invalid' : ''; ?>" id="slug" name="slug" value="<?= old('slug');?>">
-                                <?php if($validation->hasError('slug')) : ?>
+                            <label for="biodata">Biodata</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('biodata')) ? 'is-invalid' : ''; ?>" id="biodata" name="biodata" value="<?= old('biodata');?>">
+                                <?php if($validation->hasError('biodata')) : ?>
                                 <div class="invalid-feedback">
-                                  <?= $validation->getError("slug"); ?>
+                                  <?= $validation->getError("biodata"); ?>
                                 </div>
                                 <?php endif; ?>  
-                              </div>
+                            </div>
                             <div class="form-group">
-                                <label for="kategori">Kategori Postingan</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('kategori')) ? 'is-invalid' : ''; ?>" id="kategori" name="kategori" value="<?= old('kategori');?>">
-                                <?php if($validation->hasError('kategori')) : ?>
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" id="email" name="email" value="<?= old('email');?>">
+                                <?php if($validation->hasError('email')) : ?>
                                 <div class="invalid-feedback">
-                                  <?= $validation->getError("kategori"); ?>
+                                  <?= $validation->getError("email"); ?>
                                 </div>   
                                 <?php endif; ?>      
                             </div>
                             <div class="form-group">
-                                <label for="author">Author</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('author')) ? 'is-invalid' : ''; ?>" id="author" name="author" value="<?= old('author');?>"> 
-                                <?php if($validation->hasError('author')) : ?>
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" value="<?= old('password');?>"> 
+                                <?php if($validation->hasError('password')) : ?>
                                 <div class="invalid-feedback">
-                                  <?= $validation->getError("author"); ?>
+                                  <?= $validation->getError("password"); ?>
                                 </div>        
                                 <?php endif; ?>
-                            </div>
+                                </div>
+                            <!-- <div class="form-group">
+                            <label for="foto" class="form-label">Foto Profil</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input <?= ($validation->hasError('foto')) ? 'is-invalid' : ''; ?>" id="foto" name="foto">
+                                    <?php if($validation->hasError('foto')) : ?>  
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError("foto"); ?>
+                                      </div>
+                                      <?php endif; ?>
+                                      <label class="custom-file-label" for="foto"></label>   
+                                   <label class="custom-file-label" for="foto"> pilih gambar </label>
+                                  <button class="btn btn-outline-secondary" type="upload" id="foto">Upload</button>
+                                </div>
+                            </div> -->
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-paper-plane"></i> Submit
                             </button>
                         </div>
-                        <div class="col-md-8">
-                            <label for="deskripsi"> Deskripsi Postingan</label><br>
-                            <textarea name="deskripsi" id="deskripsi" class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>">
-                            <?=old("deskripsi");?></textarea>
-                            <?php if($validation->hasError('deskripsi')) : ?>
-                        </div>
-                        <?php endif; ?>
                     </div>
                 </form>
             </div>
@@ -164,10 +171,4 @@
 </div>
 <!-- ./wrapper -->
 
-<?= $this->endSection(); ?>
-
-<?= $this->section('myscript'); ?>
-<script>
-    $('#deskripsi').summernote()
-</script>
 <?= $this->endSection(); ?>

@@ -12,10 +12,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="v_home.php" class="nav-link">Home</a>
+        <a href="/home" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="/about" class="nav-link">Contact</a>
       </li>
     </ul>
   </nav>
@@ -34,10 +34,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/assets/adminlte/dist/img/user4-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Ummu Qaltsum</a>
         </div>
       </div>
 
@@ -59,6 +59,12 @@
             <a href="/admin/posts" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>My Post</p>
+           </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/users" class="nav-link">
+              <i class="nav-icon fas fa-user-graduate"></i>
+              <p>Data User</p>
            </a>
           </li>
         </ul>
@@ -88,7 +94,21 @@
     </div>
     <!-- /.content-header -->
     <!-- /.content -->
+    <div class="container">
+    <br>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div align="center" class="carousel-inner">
+        <div class="carousel-item active">
+        <img width="800px" height="400px" src="/assets/images/caro5.jpg" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+            <!-- <h5>Author</h5> -->
+            <p>"Gatau mau diisi apa, gini aja biar ga kosong"</p>
+        </div>
+        </div>
+    </div>
   </div>
+</div>
+</div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

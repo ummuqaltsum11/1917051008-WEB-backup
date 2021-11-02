@@ -38,7 +38,9 @@ $routes->setAutoRoute(true);
 //$routes->get('/biodata/(:alpha)', 'Biodata::fungsiNama/$1'); //routing fungsiNama
 //$routes->get('/', 'Home::index');
 
-$routes->get('/', function() {
+$routes->get('/', 'Templating::register');
+
+$routes->get('/home', function() {
 	//return view('v_home');
 	$data = [
 		'title' => "Blog - Home",
@@ -50,7 +52,7 @@ $routes->get('/', function() {
 });
 
 $routes->get('/admin', 'Templating::index');
-$routes->get('/register', 'Templating::register');
+// $routes->get('/register', 'Templating::register');
 $routes->post('/saveRegister', 'Templating::saveRegister');
 
 $routes->get('/posts', 'PostController::index');
@@ -66,9 +68,20 @@ $routes->get('/about', function() {
     echo view('layout/footer');
 });
 
-$routes->get('/admin/posts', 'AdminPostsController::index');
-$routes->get('/admin/posts/create', 'AdminPostsController::create');
-$routes->post('/admin/posts/store', 'AdminPostsController::store');
+$routes->get('admin/posts', 'AdminPostsController::index');
+$routes->get('admin/posts/create', 'AdminPostsController::create');
+$routes->post('admin/posts/store', 'AdminPostsController::store');
+$routes->delete('admin/posts/(:num)', 'AdminPostsController::delete/$1');
+$routes->get('admin/posts/edit/(:num)', 'AdminPostsController::edit/$1');
+$routes->post('admin/posts/update/(:num)', 'AdminPostsController::update/$1');
+
+
+$routes->get('admin/users', 'AdminUsers::index');
+$routes->get('admin/users/create', 'AdminUsers::create');
+$routes->get('admin/users/edit/(:num)', 'AdminUsers::edit/$1');
+$routes->post('admin/users/save', 'AdminUsers::save');
+$routes->delete('admin/users/(:num)', 'AdminUsers::delete/$1');
+$routes->post('admin/users/ubah/(:num)', 'AdminUsers::ubah/$1');
 
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {

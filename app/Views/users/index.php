@@ -34,10 +34,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/assets/adminlte/dist/img/user4-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Ummu Qaltsum</a>
         </div>
       </div>
 
@@ -55,13 +55,13 @@
               </p>
             </a>
           </li>
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="/admin/posts" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>My Post</p>
            </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="/admin/users" class="nav-link">
               <i class="nav-icon fas fa-user-graduate"></i>
               <p>Data User</p>
@@ -81,12 +81,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">My Posts</h1>
+            <h1 class="m-0">Data User</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-              <li class="breadcrumb-item active">My Post</li>
+              <li class="breadcrumb-item active">Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -101,35 +101,37 @@
         </div>
       <?php endif; ?>
       <div class="container-fluid">
-          <a href="/admin/posts/create" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah Data</a>
+          <a href="/admin/users/create" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah Data</a>
           <div class="card mt-3">
             <div class="card-header">
-              Daftar Postingan
+              Data Registrasi User
             </div>
             <div class="table-responsive">
               <table class="table table-striped text-center">
                 <thead>
                   <tr>
                     <th scope="col">No.</th>
-                    <th scope="col">Judul</th>
-                    <th scope="col">Slug</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Kategori</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Biodata</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Pasword</th>
+                    <th scope="col">Foto Profil</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($posts as $i => $post) : ?>
+                  <?php foreach ($users as $i => $user) : ?>
                   <tr>
                     <th scope="row"><?= $i +1; ?></th>
-                    <td><?= $post['judul']; ?></td>
-                    <td><?= $post['slug']; ?></td>
-                    <td><?= $post['author']; ?></td>
-                    <td><?= $post['kategori']; ?></td>
+                    <td><?= $user['fullname']; ?></td>
+                    <td><?= $user['biodata']; ?></td>
+                    <td><?= $user['email']; ?></td>
+                    <td><?= $user['password']; ?></td>
+                    <td><?= $user['foto']; ?></td>
                     <td>
-                      <a href="posts/edit/<?= $post['post_id']; ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"></i> Edit</a>
+                      <a href="users/edit/<?= $user['id']; ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"></i> Edit</a>
 
-                      <form action="posts/<?= $post['post_id']; ?>" method="post" class="d-inline">
+                      <form action="users/<?= $user['id']; ?>" method="post" class="d-inline">
                       <?= csrf_field(); ?>
                       <input type="hidden" name="_method" value="delete">
                       <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ?');"><i class="fas fa-trash"></i> Hapus</button>
